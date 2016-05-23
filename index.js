@@ -16,7 +16,7 @@ function delvesLynessRoots (f, fp, z0, r, tol, maxDepth) {
   r = r === undefined ? 1 : r;
   maxDepth = maxDepth === undefined ? 20 : maxDepth;
 
-  var params = {a: z0[0], b: z0[1], r: r, f: f, fp: fp};
+  var params = {z0r: z0[0], z0i: z0[1], r: r, f: f, fp: fp};
 
   s0 = integrate(s0Integrand.bind(params), 0, Math.PI * 2, Math.sqrt(tol), maxDepth);
   M = Math.round(s0);
@@ -27,24 +27,22 @@ function delvesLynessRoots (f, fp, z0, r, tol, maxDepth) {
     return false;
   }
 
+  params.M = M;
   var sm = smIntegrand.bind(params);
-  for (p = [], i = 0; i < M; i++) {
-    params.m = i + 1;
-    p[i] = cIntegrate(sm, 0, Math.PI * 2, tol, maxDepth);
-  }
+  p = cIntegrate(sm, 0, Math.PI * 2, tol, maxDepth);
 
   // Use Newton's Identities to construct a polynomial, the roots of
   // which match our complex analytic function:
-  er = [1, p[0][0]];
-  ei = [0, p[0][1]];
+  er = [1, p[0]];
+  ei = [0, p[1]];
 
   for (i = 2, sgn = -1; i <= M; i++, sgn = -sgn) {
-    er[i] = p[i - 1][0] * sgn;
-    ei[i] = p[i - 1][1] * sgn;
+    er[i] = p[2 * i - 2] * sgn;
+    ei[i] = p[2 * i - 1] * sgn;
     for (j = 1, sgn2 = -sgn; j < i; j++, sgn2 = -sgn2) {
-      j2 = i - j - 1;
-      er[i] += (er[j] * p[j2][0] - ei[j] * p[j2][1]) * sgn2;
-      ei[i] += (er[j] * p[j2][1] + ei[j] * p[j2][0]) * sgn2;
+      j2 = 2 * (i - j - 1);
+      er[i] += (er[j] * p[j2] - ei[j] * p[j2 + 1]) * sgn2;
+      ei[i] += (er[j] * p[j2 + 1] + ei[j] * p[j2]) * sgn2;
     }
     er[i] /= i;
     ei[i] /= i;

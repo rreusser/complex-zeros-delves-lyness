@@ -11,7 +11,6 @@ Given a complex analytic function and its derivative, this module uses [the meth
 This module currently applies the method successfully with the following exceptions:
 - Does not account for poles
 - Does not implement recursive subdivision (= robustness when the contour intersects a zero or the contour contains an excessive number of zeros)
-- It's kinda brain-dead the way it doesn't reuse function evaluations across <em>s<sub>N</sub></em>. This just means unrolling the integration, so avoiding until robust...
 
 ## Installation
 
