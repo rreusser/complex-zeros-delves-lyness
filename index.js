@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = delvesLynessRoots;
+module.exports = complexZeros;
 
 var integrate = require('integrate-adaptive-simpson');
 var cIntegrate = require('integrate-adaptive-simpson/vector');
@@ -8,7 +8,7 @@ var s0Integrand = require('./lib/s0-integrand');
 var smIntegrand = require('./lib/sm-integrand');
 var roots = require('durand-kerner');
 
-function delvesLynessRoots (f, fp, z0, r, tol, maxDepth) {
+function complexZeros (f, fp, z0, r, tol, maxDepth) {
   var i, j, p, er, ei, sgn, sgn2, s0, j2;
 
   z0 = z0 === undefined ? [0, 0] : z0;
