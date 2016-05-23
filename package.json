@@ -1,0 +1,39 @@
+{
+  "name": "complex-zeros-delves-lyness",
+  "version": "1.0.0",
+  "description": "Compute the zeros of a complex analytic function using the method of Delves and Lyness",
+  "main": "index.js",
+  "author": {
+    "name": "Ricky Reusser",
+    "email": "rsreusser@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rreusser/complex-zeros-delves-lyness.git"
+  },
+  "scripts": {
+    "test": "semistandard && mocha"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "almost-equal": "^1.1.0",
+    "chai": "^3.5.0",
+    "complex-modulus": "^1.0.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "complex-division": "^1.1.1",
+    "durand-kerner": "^1.0.0",
+    "integrate-adaptive-simpson": "^1.1.0",
+    "math-hypot": "^1.0.0",
+    "poly-roots": "^1.0.8"
+  },
+  "semistandard": {
+    "globals": [
+      "describe",
+      "it",
+      "context"
+    ]
+  }
+}
