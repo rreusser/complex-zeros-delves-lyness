@@ -12,6 +12,10 @@ This module currently applies the method successfully with the following excepti
 - Does not account for poles
 - Does not implement recursive subdivision (= robustness when the contour intersects a zero or the contour contains an excessive number of zeros)
 
+## Installation
+
+Can be installed from github, but not currently published.
+
 ## Example
 
 The single zero of the function <em>cos(z) + sin(z)</em> inside the unit circle is <em>z<sub>0</sub> = -π / 4</em>:
@@ -64,6 +68,9 @@ Compute the zeros of a complex analytic function.
 - `r: Number`: the radius of the contour. Default is `1`.
 - `tol`: tolerance used in the integration and polynomial root-finding steps. Default is `1e-8`.
 - `maxDepth`: maximum recursion depth of the adaptive Simpson integration. Default is `20`.
+
+**Returns**:
+Returns `false` on failure, otherwise an array containing an `Array` containing `Arrays` of the real and imaginary components of the zeros, respectively. That is, <em>1 + 2i</em> and <em>3 + 4i</em> would be returned as `[[1, 3], [2, 4]]`.
 
 ## References
 [1] Delves, L. M., & Lyness, J. N. (1967). [A numerical method for locating the zeros of an analytic function](http://www.ams.org/mcom/1967-21-100/S0025-5718-1967-0228165-4/S0025-5718-1967-0228165-4.pdf). Mathematics of Computation.
