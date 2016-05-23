@@ -21,7 +21,7 @@ Can be installed from github, but not currently published.
 The single zero of the function <em>cos(z) + sin(z)</em> inside the unit circle is <em>z<sub>0</sub> = -π / 4</em>:
 
 ```javascript
-var zeros = require('complex-roots-delves-lyness');
+var zeros = require('complex-zeros-delves-lyness');
 
 function f (out, a, b) {
   out[0] = Math.cosh(b) * (Math.cos(a) + Math.sin(a));

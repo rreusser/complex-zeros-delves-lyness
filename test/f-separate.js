@@ -5,7 +5,7 @@ var roots = require('../');
 var assertContainsRoots = require('./util/assert-contains-roots');
 var assertRoots = require('./util/assert-roots');
 
-describe('delves-lyness-roots', function () {
+describe('complex-zeros-delves-lyness', function () {
   context("computing f and f' separately", function () {
     it('finds roots of z * (z - 1) * (z - i)', function () {
       // Roots are: 0, 1, i

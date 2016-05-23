@@ -5,7 +5,7 @@ var roots = require('../');
 var assertContainsRoots = require('./util/assert-contains-roots');
 var assertRoots = require('./util/assert-roots');
 
-describe('delves-lyness-roots', function () {
+describe('complex-zeros-delves-lyness', function () {
   context("computing f and f' simultaneously", function () {
     it('returns empty if no roots, e.g. z = 4', function () {
       var f = function (out, a, b) {
