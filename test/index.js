@@ -72,7 +72,7 @@ describe('complex-zeros-delves-lyness', function () {
       assertRoots(f, z);
     });
 
-    it('finds roots of cos(z) + sin(z)', function () {
+    it('deflates zeros and finds roots of cos(z) + sin(z)', function () {
       var f = function (out, a, b) {
         var chb = Math.cosh(b);
         var shb = Math.sinh(b);

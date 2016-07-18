@@ -6,11 +6,8 @@
 
 Given a complex analytic function and its derivative, this module uses [the method of Delves and Lyness](http://www.ams.org/mcom/1967-21-100/S0025-5718-1967-0228165-4/S0025-5718-1967-0228165-4.pdf) [[1]](#References) to compute the zeros. That is, it computes <p align="center"><img alt="s&lowbar;N &equals; &bsol;frac&lcub;1&rcub;&lcub;2 &bsol;pi i&rcub; &bsol;oint z&Hat;N &bsol;frac&lcub;f&apos;&lpar;z&rpar;&rcub;&lcub;f&lpar;z&rpar;&rcub; dz" valign="middle" src="images/s_n-frac12-pi-i-oint-zn-fracfzfz-dz-dba6b12822.png" width="209" height="53.5"></p> numerically using [adaptive Simpson's method](https://github.com/scijs/integrate-adaptive-simpson) integration. In the absence of poles, [Cauchy's argument principle](https://en.wikipedia.org/wiki/Argument_principle) states <em>s<sub>0</sub></em> is the number of zeros <em>M</em>. Using [Newton's Identities](https://en.wikipedia.org/wiki/Newton%27s_identities), the moments <em>s<sub>1</sub></em> through <em>s<sub>M</sub></em> are transformed into a polynomial, the roots of which correspond to the encircled zeros of the function <em>f</em> and which may be computed with a complex polynomial root-finder like the [Weierstrass](http://github.com/scijs/durand-kerner) method.
 
-## Todo
-
-This module currently applies the method successfully with the following exceptions:
-- Does not account for poles
-- Does not implement recursive subdivision (= robustness when the contour intersects a zero or the contour contains an excessive number of zeros)
+## To Do
+Currently locates multiple zeros with recursive subdivision, but needs checks for near-zero along the contour and check for poor <em>S<sub>0</sub></em> integration. Optional derivative-based post-processing refinement (i.e. Newton-Raphson) would also be a nice plus.
 
 ## Installation
 

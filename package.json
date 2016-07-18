@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "complex-division": "^1.1.1",
+    "complex-modulus": "^1.0.1",
     "durand-kerner": "^1.0.0",
     "integrate-adaptive-simpson": "^1.1.0",
     "math-hypot": "^1.0.0",
