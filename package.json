@@ -13,14 +13,28 @@
     "url": "git://github.com/rreusser/complex-zeros-delves-lyness.git"
   },
   "scripts": {
-    "test": "semistandard && mocha"
+    "test": "semistandard && mocha",
+    "build": "for i in docs/src/*.js; do out=`echo $i |sed -e \"s/src\\/\\([^\\.]*\\)\\.js/\\1.html/\"`; browserify $i -t glslify | indexhtmlify > $out; done",
+    "start": "budo docs/src/lamb.js --live --open -- -t glslify"
   },
   "keywords": [],
   "devDependencies": {
     "almost-equal": "^1.1.0",
+    "browserify": "^13.1.0",
     "chai": "^3.5.0",
+    "complex-deriv-fornberg": "^1.0.6",
     "complex-modulus": "^1.0.0",
-    "mocha": "^2.4.5"
+    "complex.js": "^2.0.1",
+    "control-panel": "^1.2.0",
+    "event-emitter": "^0.3.4",
+    "gl-mat4": "^1.1.4",
+    "glsl-domain-coloring": "^2.0.6",
+    "glslify": "^5.1.0",
+    "indexhtmlify": "^1.3.0",
+    "mocha": "^2.4.5",
+    "mouse-change": "^1.3.0",
+    "mouse-wheel": "^1.2.0",
+    "regl": "^1.2.1"
   },
   "dependencies": {
     "complex-division": "^1.1.1",
