@@ -14,8 +14,13 @@
   },
   "scripts": {
     "test": "semistandard && mocha",
-    "build": "for i in docs/src/*.js; do out=`echo $i |sed -e \"s/src\\/\\([^\\.]*\\)\\.js/\\1.html/\"`; browserify $i -t glslify | indexhtmlify > $out; done",
+    "build": "for i in docs/src/*.js; do out=`echo $i |sed -e \"s/src\\/\\([^\\.]*\\)\\.js/\\1.html/\"`; browserify $i -t glslify | indexhtmlify | metadataify | github-cornerify > $out; done",
     "start": "budo docs/src/lamb.js --live --open -- -t glslify"
+  },
+  "github-corner": {
+    "url": "https://github.com/rreusser/complex-zeros-delves-lyness",
+    "bg": "#fff",
+    "fg": "#333"
   },
   "keywords": [],
   "devDependencies": {
